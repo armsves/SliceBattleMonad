@@ -1,0 +1,16 @@
+{
+  "name": "slicebattle",
+  "version": "1.0.0",
+  "description": "Slice Battle - Multiplayer pizza slice arena game on Monad",
+  "scripts": {
+    "install:contracts": "cd contracts && forge install foundry-rs/forge-std",
+    "build:contracts": "cd contracts && forge build",
+    "test:contracts": "cd contracts && forge test",
+    "install:frontend": "cd frontend && npm install",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "keywords": ["monad", "blockchain", "game", "web3", "gelato", "dynamic"],
+  "author": "",
+  "license": "MIT"
+}

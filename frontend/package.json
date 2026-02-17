@@ -1,0 +1,30 @@
+{
+  "name": "slicebattle-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "viem": "^2.37.0",
+    "wagmi": "^2.0.0",
+    "@tanstack/react-query": "^5.0.0",
+    "@gelatonetwork/smartwallet-react-dynamic": "^1.0.0",
+    "zustand": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "typescript": "^5.2.0",
+    "vite": "^5.0.0",
+    "vite-plugin-pwa": "^0.17.0"
+  },
+  "overrides": {
+    "viem": "^2.37.0"
+  }
+}
