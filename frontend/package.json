@@ -10,8 +10,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "viem": "^2.37.0",
-    "wagmi": "^2.0.0",
+    "viem": "~2.36.0",
+    "wagmi": "~2.16.8",
     "@tanstack/react-query": "^5.0.0",
     "@gelatonetwork/smartwallet-react-dynamic": "^1.0.0",
     "zustand": "^4.4.0"
@@ -25,6 +25,7 @@
     "vite-plugin-pwa": "^0.17.0"
   },
   "overrides": {
-    "viem": "^2.37.0"
+    "viem": "~2.36.0",
+    "wagmi": "~2.16.8"
   }
 }

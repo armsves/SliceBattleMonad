@@ -1,6 +1,4 @@
-import { defineChain } from 'viem';
-
-export const monadTestnet = defineChain({
+export const monadTestnet = {
   id: 10143,
   name: 'Monad Testnet',
   nativeCurrency: {
@@ -9,9 +7,7 @@ export const monadTestnet = defineChain({
     symbol: 'MON',
   },
   rpcUrls: {
-    default: {
-      http: [import.meta.env.VITE_GELATO_RPC_URL || 'https://api.gelato.cloud/rpc/10143?apiKey=test_phx0xw9eGF7KIRT5VJb_eEwgmdTMxcvK_B5olV6lrs0_'],
-    },
+    default: { http: ['https://monad-testnet.drpc.org'] },
   },
   blockExplorers: {
     default: {
@@ -20,4 +16,4 @@ export const monadTestnet = defineChain({
     },
   },
   testnet: true,
-});
+};

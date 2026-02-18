@@ -29,7 +29,7 @@ export function Leaderboard({ data, playerAddress }: LeaderboardProps) {
             
             return (
               <div
-                key={entry.address}
+                key={`${entry.address}-${index}`}
                 style={{
                   background: isPlayer ? 'rgba(255, 215, 0, 0.2)' : 'rgba(255, 68, 68, 0.1)',
                   border: `2px solid ${isPlayer ? '#FFD700' : '#FF4444'}`,

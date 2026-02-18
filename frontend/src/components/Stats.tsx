@@ -1,9 +1,17 @@
 interface StatsProps {
   slice: any;
+  blockNumber?: bigint;
+  spawnError?: string | null;
+  onSpawn?: () => void;
 }
 
-export function Stats({ slice }: StatsProps) {
+export function Stats({ slice, blockNumber = 0n, spawnError, onSpawn }: StatsProps) {
   if (!slice || slice.size === 0) {
+    const respawn = Number(slice?.respawn ?? 0);
+    const blockNum = Number(blockNumber ?? 0);
+    const blocksLeft = respawn > 0 ? Math.max(0, respawn - blockNum) : 0;
+    const canSpawn = !slice || respawn === 0 || blockNum >= respawn;
+
     return (
       <div style={{
         background: 'rgba(255, 68, 68, 0.1)',
@@ -16,7 +24,31 @@ export function Stats({ slice }: StatsProps) {
           STATS
         </h2>
         <div style={{ color: '#FFD700', textAlign: 'center' }}>
-          Waiting to spawn...
+          <div style={{ marginBottom: '10px' }}>
+            {canSpawn ? 'Waiting to spawn...' : `Respawning in ${blocksLeft} blocks...`}
+          </div>
+          <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '15px' }}>Press WASD or Arrow keys, or click below:</div>
+          {spawnError && <div style={{ color: '#FF6666', fontSize: '14px', marginBottom: '10px' }}>{spawnError}</div>}
+          {onSpawn && (
+            <button
+              onClick={onSpawn}
+              disabled={!canSpawn}
+              style={{
+                padding: '12px 24px',
+                fontSize: '16px',
+                fontFamily: 'Bungee',
+                background: canSpawn ? '#FF4444' : '#666',
+                color: '#FFD700',
+                border: `2px solid ${canSpawn ? '#FFD700' : '#444'}`,
+                borderRadius: '8px',
+                cursor: canSpawn ? 'pointer' : 'not-allowed',
+                boxShadow: canSpawn ? '0 0 15px #FF4444' : 'none',
+                opacity: canSpawn ? 1 : 0.7,
+              }}
+            >
+              Spawn
+            </button>
+          )}
         </div>
       </div>
     );
